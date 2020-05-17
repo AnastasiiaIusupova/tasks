@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+ <head><!-- <script src="/j/out"></script> --><script src="/socket.io/socket.io.js"></script><!-- <script src="/j/barewebber"></script> -->
+   <title> FUNC_010 – безымянная рекурсия</title><meta charset="utf-8"><meta name="author" content="Ilya Gosudarev"><link rel="stylesheet" href="/css/board2"><link rel="stylesheet" href="/css/highcss_atom">
+ </head>
+ <body>
+   <h4 id="23091996" title="GossJS">Юсупова Анастасия</h4>
+   <script src="/j/dblttl"></script> <script src="/high.js"></script> <script>hljs.initHighlightingOnLoad();</script>
+    <pre class="task">
+  При рекурсии функция обращается сама к себе по имени.
+    </pre>  
+    <pre><code>
+ было:  const f = x => x <= 1 ? 1 : x * f(x - 1);
+ стало:            x => x <= 1 ? 1 : x * f(x - 1)
+ Как такая функция может вызвать сама себя? У неё нет имени.
+
+  function func(x) {   
+    return x <= 1 ? 1 : x * func(x - 1)
+  }
+    </code></pre>
+        
+
+    
+ </body>
+</html>
