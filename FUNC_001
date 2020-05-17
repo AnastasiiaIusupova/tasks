@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Юсупова Анастасия</title><meta charset="utf-8">
+ </head>
+ <body>
+   <h4 id="author" title="GossJS">Юсупова Анастасия</h4>
+<button>Посмотреть результат выполнения задания!</button>  
+<script type="text/javascript">
+   console.clear();
+   // здесь объявите функцию
+  
+function rgb(r = 255, g = 255, b = 255) {
+
+    const concat = (...args) => [...args].reduce((x, y) => `${x}${y}`);// `
+    console.log(concat('rgb(', r, ',', g, ',', b, ')'));
+    let text =  concat('#', r.toString(16),                                                             g.toString(16),                                                             b.toString(16));
+  return text;
+}
+
+   document.querySelector('button')
+   .addEventListener(
+     'click',
+      e => {
+        // здесь код вызова функции rgb
+        e.target.textContent =  rgb(0,34, 123); // вывод результата 
+      }
+   );
+ 
+</script>
+
+<!-- 
+
+Не забудьте о выполнении требования
+   kodaktor.ru/z7a
+
+Текст задания: https://kodaktor.ru/func_001 и в курсе 33 (вводном) 
+
+-->
+ </body>
+</html>
