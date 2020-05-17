@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JSIN-001 </title><meta charset="utf-8"><meta name="Юсупова Анастасия" content="Ilya Gosudarev">
+</head>
+<body>
+<script src="/j/dblttl"></script> 
+  <script src="/high.js"></script> <script>hljs.initHighlightingOnLoad();</script>
+<script>
+let fDeg =32;
+let roubles = 25000;
+let a = 8;
+let b = 45;
+let c = -18;
+
+// перевод Фаренгейта в Цельсия
+const cDeg = ((fDeg - 32) * 5) / 9;
+  document.write("Градусы Цельсия = ");
+document.write(cDeg);
+
+//рубли в доллары по курсы ЦБ
+let rate = 73.92;
+const dollars = roubles / rate;
+    document.write(" Доллары = ");
+document.write(dollars );
+
+// квадратное уравнние
+const D = Math.pow(b, 2) - 4 * a * c;
+const x1 = (-b + Math.sqrt(D)) / (2 * a);
+const x2 = (-b - Math.sqrt(D)) / (2 * a);
+    document.write(" X1 = ");
+document.write(x1 );
+    document.write(" X2 = ");
+document.write(x2 );
+</script>
+
+</body>
+</html>
