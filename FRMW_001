@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>React Bind</title> 
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>  
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.0.0/umd/react.production.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.0.0/umd/react-dom.production.min.js"></script>
+ </head>
+ <body>
+   <h4 id="author" title="GossJS">Юсупова Анастасия</h4>
+    <div class="cont"></div><script type="text/babel">
+      const [{ Component: C }, {render: r}] = [React, ReactDOM];
+      
+      class Stater  extends C {
+       constructor() {
+         super();
+         this.state = {v: 'Hello'}; 
+       }
+       
+       handleChange = (value) => this.setState({v: value});
+       click() {
+         this.setState(() => ({ v: 'Hi, man!' })); 
+       }
+       render() {
+         return (<div>
+         <h1 onClick={this.click.bind(this)}>{ this.state.v }</h1>
+           <input value={this.state.v} onChange={({target: {value: v}}) => this.handleChange(v)}/>
+           <input value={this.state.v} onChange={({target: {value: v}}) => this.handleChange(v)}/>
+           
+         </div>); 
+       }
+      }   
+      
+      r(
+        <Stater  />,
+        document.querySelector('.cont')
+      );
+
+    </script>
+    
+     
+    <hr>
+    
+ </body>
+</html>
+<!-- https://kodaktor.ru/vue_double_bind -->
