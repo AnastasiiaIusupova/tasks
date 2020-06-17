@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+ <head><title>Vue</title> 
+       <script src="//vuejs.org/js/vue.js"></script>
+ </head>
+ <body><div id="app">
+      <h4 id="author" title="GossJS">Юсупова Анастасия</h4>
+   <input v-model="message">
+   <input v-model="message">
+   {{message}}</div>
+       <script>{
+         new Vue({
+              el: '#app',
+              data: {
+                  message: 'Привет!'
+              }
+         });       
+       }</script>
+ </body>
+</html>
