@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+ <head><title>Vue</title> 
+       <script src="//vuejs.org/js/vue.js"></script>
+   <script src="/j/out"></script>
+ </head>
+  <body><div id="app">
+     <h4 id="author" title="GossJS">Юсупова Анастасия</h4>
+    <ol><li v-for="(todo,index) in todos" :key="index">{{todo}}<button @click="removeTodo(index)">Remove</button></li></ol>
+    <input v-model="text"/>
+    <button @click="todos.push(`${text}`)">Добавить</button>
+    </div>
+       <script>
+         new Vue({
+              el: '#app',
+              data: {
+                  text: 'пустое',
+                   todos: [],
+              },
+                           created: function () {
+                   fetch('https://kodaktor.ru/j/tasklist').then(response => response.json()).then(json => this.todos = json.list);
+                           },
+                           methods: {
+                           removeTodo: function(index) {
+                           	this.todos.splice(index, 1)
+                           }
+                           }
+         });       
+       </script>
+ </body>
+</html>
