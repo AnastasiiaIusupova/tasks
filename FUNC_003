@@ -6,7 +6,7 @@
  <body>
    <script src="/j/dblttl"></script> <script src="/high.js"></script> <script>hljs.initHighlightingOnLoad();</script>
     <pre class="task">
-<h4 id="23091996" title="GossJS">Юсупова Анастасия</h4>
+<h4 id="author" title="GossJS">Юсупова Анастасия</h4>
 Задание на импорт функции из модуля.  <pre><code>
 // Дано: функция, экспортированная по адресу 
 // kodaktor.ru/j/func_003_export
