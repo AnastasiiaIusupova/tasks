@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head><title>Drag and drop by Iusupova Anastasiia</title><meta charset="utf-8">
+    <style>
+    #cart {background: white; width: 98%; height: 300px;   padding: 10px; font-size: 10px}
+    #cart p {font-size: 20px}
+    #choice {background: #FFB6C1; width: 98%; height: 200px; padding: 10px; font-size: 20px}
+    .item {font-size: 10px}
+
+    #t1 {background-image: url(http://crosti.ru/patterns/00/02/0a/6eb3678884/preview.jpg); background-size: cover;width: 70px; height: 70px;  margin: 2px; padding: 5px; color: black;}
+    #t2 {background-image: url(https://thumbs.dreamstime.com/b/%D1%86%D0%B2%D0%B5%D1%82%D0%B0%D1%81%D1%82%D1%8B%D0%B5-gerberas-4790284.jpg); background-size: cover;width: 70px; height: 70px;  margin: 2px; padding: 5px; color: black;}
+    #t3 {background-image: url(https://salsabil.kz/wp-content/uploads/2017/09/%D0%BE%D1%80%D1%85%D0%B8%D0%B4%D0%B5%D1%8F.jpg); background-size: cover;width: 70px; height: 70px;  margin: 2px; padding: 5px; color: black;}
+    #t4 {background-image: url(https://s1.1zoom.ru/b5050/430/338147-sepik_2560x1600.jpg); background-size: cover;width: 70px; height: 70px;  margin: 2px; padding: 5px; color: black;}
+    div {
+  float: left;}
+    </style>
+  </head>
+  <body>
+    <h4 id="author" title="GossJS">Юсупова Анастасия</h4>
+    <div id="choice" ><p>Выберите элементы</p>
+      <div class="item" id="t1" draggable="true" cost="1000">1000</div>
+      <div class="item" id="t2" draggable="true" cost="800">800</div>
+      <div class="item" id="t3" draggable="true" cost="600">600</div>
+      <div class="item" id="t4" draggable="true" cost="400">400</div>
+    </div>
+    <div id="cart"><p>Корзина</p>
+      <p>Сумма: <span id="cartSum">0</span></p>
+      <p id="cartMessage"></p>
+    </div>
+    <script>{  
+      let maxSum = 2000;
+
+      const el = document.querySelector(`div`),
+            cart = document.querySelector(`#cart`);
+
+
+      el.addEventListener(`dragstart`, ev =>  ev.dataTransfer.setData('text/plain', ev.target.id));   
+      cart.addEventListener(`dragover`, ev => ev.preventDefault()); // позволить продолжить бросание  
+
+        cart.addEventListener('drop', (ev, res = document.getElementById(ev.dataTransfer.getData('text/plain'))) => {
+                   var sum = document.querySelector('#cartSum');
+                   var moneySpent = Number(sum.textContent);
+                   var itemCost = Number(res.getAttribute('cost'));
+                   var newSum = moneySpent + itemCost;
+           
+        if (newSum > maxSum) {
+        	document.querySelector("#cartMessage").textContent = "Кредит превышен!";
+          	ev.preventDefault();
+        }
+        else {
+            let newItem = document.createElement('div');
+            newItem.id = res.id;
+            newItem.textContent = res.textContent;
+			      sum.textContent = newSum;
+        	cart.appendChild(newItem);
+                    document.querySelector("#cartMessage").textContent = "";
+            ev.preventDefault();
+       
+            }
+      });
+ 
+
+    }</script> 
+ </body>
+</html>
